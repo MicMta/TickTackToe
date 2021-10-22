@@ -1,0 +1,198 @@
+def ticktacktoe():
+    
+    #Pusta pula gracza 1
+    
+    player1 = set()
+    
+    #Pusta pula gracza 2
+    
+    player2 = set()
+    
+    #Pula liczb do wyboru
+    
+    opcje = ['1','2','3','4','5','6','7','8','9','exit']
+    
+    #Pula kombinacji wygranych
+   
+    wygrana1={'1','2','3'}
+    wygrana2={'4','5','6'}
+    wygrana3={'7','8','9'}
+    wygrana4={'1','4','7'}
+    wygrana5={'2','5','8'}
+    wygrana6={'3','6','9'}
+    wygrana7={'1','5','9'}
+    wygrana8={'3','5','7'}
+    
+    
+    #Tablica
+    tbl1a = ('  -------    -------    -------')
+    tbl1b = ('|         ||         ||         |')
+    tbl1c1 = ('|    1    |')
+    tbl1c2 = ('|    2    |')
+    tbl1c3 = ('|    3    |')
+    tbl2c4 = ('|    4    |')
+    tbl2c5 = ('|    5    |')
+    tbl2c6 = ('|    6    |')
+    tbl3c7 = ('|    7    |')
+    tbl3c8 = ('|    8    |')
+    tbl3c9 = ('|    9    |')
+    tblxxx = ('|    X    |')
+    tblooo = ('|    O    |')
+    print(tbl1a)
+    print(tbl1b)
+    print(tbl1c1+tbl1c2+tbl1c3)
+    print(tbl1b)
+    print(tbl1a)
+    print(tbl1a)
+    print(tbl1b)
+    print(tbl2c4+tbl2c5+tbl2c6)
+    print(tbl1b)
+    print(tbl1a)
+    print(tbl1a)
+    print(tbl1b)
+    print(tbl3c7+tbl3c8+tbl3c9)
+    print(tbl1b)
+    print(tbl1a)
+    
+    player_1 = input('Imię gracza nr 1:')
+    player_2 = input('Imię gracza nr 2:')
+    
+    
+    
+    game_on = True
+    
+    while game_on:
+        #Input gracza nr 1 
+    
+        first = input(f'{player_1} wybierz wolne pole') 
+    
+        #Sprawdzenie czy liczba jest na liście
+        while first not in opcje:
+        
+            #Jeśli nie - ponow wybor
+            first = input('Error! Wybierz ponownie')
+            
+        
+            #Jeśli tak - usun liczbę z listy do wyboru i dodaj do listy gracza
+        else:
+            opcje.remove(first)
+            player1.add(first)
+            if first == '1':
+                tbl1c1 = tblxxx
+            elif first =='2':
+                tbl1c2 = tblxxx
+            elif first =='3':
+                tbl1c3 = tblxxx
+            elif first =='4':
+                tbl2c4 = tblxxx
+            elif first =='5':    
+                tbl2c5 = tblxxx
+            elif first =='6':    
+                tbl2c6 = tblxxx
+            elif first =='7':    
+                tbl3c7 = tblxxx
+            elif first =='8':    
+                tbl3c8 = tblxxx
+            elif first =='9':    
+                tbl3c9 = tblxxx
+            elif first =='exit':    
+                break
+                
+        print(tbl1a)
+        print(tbl1b)
+        print(tbl1c1+tbl1c2+tbl1c3)
+        print(tbl1b)
+        print(tbl1a)
+        print(tbl1a)
+        print(tbl1b)
+        print(tbl2c4+tbl2c5+tbl2c6)
+        print(tbl1b)
+        print(tbl1a)
+        print(tbl1a)
+        print(tbl1b)
+        print(tbl3c7+tbl3c8+tbl3c9)
+        print(tbl1b)
+        print(tbl1a)
+        
+        #sprawdz czy wygrane liczby stanową subset puli gracza
+        if wygrana1.issubset(player1) or wygrana2.issubset(player1)or wygrana3.issubset(player1) or wygrana4.issubset(player1) or wygrana5.issubset(player1) or wygrana6.issubset(player1) or wygrana7.issubset(player1) or wygrana8.issubset(player1):
+         
+            #Jeśli tak - ogłoszenie wyników
+       
+            print(f'{player_1} wygrał w życie!')
+            return
+        
+            #jeśli nie - tura gracza nr 2 
+   
+        else:
+            pass
+        
+    
+        #Input gracza nr 2
+    
+        second = input(f'{player_2} wybierz wolne pole')
+    
+     
+        #Sprawdzenie czy liczba jest na liście
+        while second not in opcje:
+        
+            #Jeśli nie - ponow wybor
+            second = input('To miejsce jest zajęte. Wybierz inne!')
+        
+        
+            #Jeśli tak - usun liczbę z listy do wyboru i dodaj do listy gracza
+        else:
+            opcje.remove(second)
+            player2.add(second)
+            if second == '1':
+                tbl1c1 = tblooo
+            elif second =='2':
+                tbl1c2 = tblooo
+            elif second =='3':
+                tbl1c3 = tblooo
+            elif second =='4':
+                tbl2c4 = tblooo
+            elif second =='5':    
+                tbl2c5 = tblooo
+            elif second =='6':    
+                tbl2c6 = tblooo
+            elif second =='7':    
+                tbl3c7 = tblooo
+            elif second =='8':    
+                tbl3c8 = tblooo
+            elif second =='9':    
+                tbl3c9 = tblooo
+            elif second =='exit':
+                break
+        print(tbl1a)
+        print(tbl1b)
+        print(tbl1c1+tbl1c2+tbl1c3)
+        print(tbl1b)
+        print(tbl1a)
+        print(tbl1a)
+        print(tbl1b)
+        print(tbl2c4+tbl2c5+tbl2c6)
+        print(tbl1b)
+        print(tbl1a)
+        print(tbl1a)
+        print(tbl1b)
+        print(tbl3c7+tbl3c8+tbl3c9)
+        print(tbl1b)
+        print(tbl1a)
+        
+        #sprawdz czy wygrane liczby stanową subset puli gracza
+        if wygrana1.issubset(player2) or wygrana2.issubset(player2)or wygrana3.issubset(player2) or wygrana4.issubset(player2) or wygrana5.issubset(player2) or wygrana6.issubset(player2) or wygrana7.issubset(player2) or wygrana8.issubset(player2):
+         
+                #Jeśli tak - ogłoszenie wyników
+       
+            print(f'{player_2} wygrał w życie!')
+            return
+        
+                #jeśli nie - tura gracza nr 2 
+   
+        else:
+            pass
+    
+        
+        
+        
