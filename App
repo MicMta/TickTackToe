@@ -1,30 +1,30 @@
 def ticktacktoe():
-    
-    #Pusta pula gracza 1
-    
+
+    #Player one chosen numbers
+
     player1 = set()
-    
-    #Pusta pula gracza 2
-    
+
+    #Player two chosen numbers
+
     player2 = set()
-    
-    #Pula liczb do wyboru
-    
-    opcje = ['1','2','3','4','5','6','7','8','9','exit']
-    
-    #Pula kombinacji wygranych
-   
-    wygrana1={'1','2','3'}
-    wygrana2={'4','5','6'}
-    wygrana3={'7','8','9'}
-    wygrana4={'1','4','7'}
-    wygrana5={'2','5','8'}
-    wygrana6={'3','6','9'}
-    wygrana7={'1','5','9'}
-    wygrana8={'3','5','7'}
-    
-    
-    #Tablica
+
+    #Available options for player input
+
+    options = ['1','2','3','4','5','6','7','8','9','exit']
+
+    #Winning combinations
+
+    winning1={'1','2','3'}
+    winning2={'4','5','6'}
+    winning3={'7','8','9'}
+    winning4={'1','4','7'}
+    winning5={'2','5','8'}
+    winning6={'3','6','9'}
+    winning7={'1','5','9'}
+    winning8={'3','5','7'}
+
+
+    #Table
     tbl1a = ('  -------    -------    -------')
     tbl1b = ('|         ||         ||         |')
     tbl1c1 = ('|    1    |')
@@ -53,29 +53,29 @@ def ticktacktoe():
     print(tbl3c7+tbl3c8+tbl3c9)
     print(tbl1b)
     print(tbl1a)
-    
-    player_1 = input('Imię gracza nr 1:')
-    player_2 = input('Imię gracza nr 2:')
-    
-    
-    
+
+    player_1 = input('Enter Player #1 name:\n')
+    player_2 = input('Enter Player #2 name:\n')
+
+
+
     game_on = True
-    
+
     while game_on:
-        #Input gracza nr 1 
-    
-        first = input(f'{player_1} wybierz wolne pole') 
-    
-        #Sprawdzenie czy liczba jest na liście
-        while first not in opcje:
-        
-            #Jeśli nie - ponow wybor
-            first = input('Error! Wybierz ponownie')
+        #Player's #1 input
+
+        first = input(f'{player_1} Choose free spot') 
+
+        #Check if player choice is valid
+        while first not in options:
+
             
-        
-            #Jeśli tak - usun liczbę z listy do wyboru i dodaj do listy gracza
+            first = input('Error! Choose again ')
+
+
+            #If player's choice is valid - remove number from 'options' list and add to player's choice list
         else:
-            opcje.remove(first)
+            options.remove(first)
             player1.add(first)
             if first == '1':
                 tbl1c1 = tblxxx
@@ -97,7 +97,7 @@ def ticktacktoe():
                 tbl3c9 = tblxxx
             elif first =='exit':    
                 break
-                
+
         print(tbl1a)
         print(tbl1b)
         print(tbl1c1+tbl1c2+tbl1c3)
@@ -113,36 +113,37 @@ def ticktacktoe():
         print(tbl3c7+tbl3c8+tbl3c9)
         print(tbl1b)
         print(tbl1a)
-        
-        #sprawdz czy wygrane liczby stanową subset puli gracza
-        if wygrana1.issubset(player1) or wygrana2.issubset(player1)or wygrana3.issubset(player1) or wygrana4.issubset(player1) or wygrana5.issubset(player1) or wygrana6.issubset(player1) or wygrana7.issubset(player1) or wygrana8.issubset(player1):
-         
-            #Jeśli tak - ogłoszenie wyników
-       
-            print(f'{player_1} wygrał w życie!')
-            return
-        
-            #jeśli nie - tura gracza nr 2 
-   
+
+        #Check if winning set is subset of player's numbers
+        if winning1.issubset(player1) or winning2.issubset(player1)or winning3.issubset(player1) or winning4.issubset(player1) or winning5.issubset(player1) or winning6.issubset(player1) or winning7.issubset(player1) or winning8.issubset(player1):
+
+            
+
+            print(f'{player_1} is the winner! ')
+            break
+            
+
+            
+
         else:
             pass
-        
-    
-        #Input gracza nr 2
-    
-        second = input(f'{player_2} wybierz wolne pole')
-    
-     
-        #Sprawdzenie czy liczba jest na liście
-        while second not in opcje:
-        
-            #Jeśli nie - ponow wybor
-            second = input('To miejsce jest zajęte. Wybierz inne!')
-        
-        
-            #Jeśli tak - usun liczbę z listy do wyboru i dodaj do listy gracza
+
+
+        #Players's #2 input
+
+        second = input(f'{player_2} choose free spot')
+
+
+        #Check if the spot is on the options list
+        while second not in options:
+
+            
+            second = input('This spot has been taken or wrong input! Choose again.')
+
+
+            
         else:
-            opcje.remove(second)
+            options.remove(second)
             player2.add(second)
             if second == '1':
                 tbl1c1 = tblooo
@@ -179,20 +180,17 @@ def ticktacktoe():
         print(tbl3c7+tbl3c8+tbl3c9)
         print(tbl1b)
         print(tbl1a)
-        
-        #sprawdz czy wygrane liczby stanową subset puli gracza
-        if wygrana1.issubset(player2) or wygrana2.issubset(player2)or wygrana3.issubset(player2) or wygrana4.issubset(player2) or wygrana5.issubset(player2) or wygrana6.issubset(player2) or wygrana7.issubset(player2) or wygrana8.issubset(player2):
-         
-                #Jeśli tak - ogłoszenie wyników
-       
-            print(f'{player_2} wygrał w życie!')
-            return
-        
-                #jeśli nie - tura gracza nr 2 
-   
+
+        #Check if winning set is subset of player's numbers
+        if winning1.issubset(player2) or winning2.issubset(player2)or winning3.issubset(player2) or winning4.issubset(player2) or winning5.issubset(player2) or winning6.issubset(player2) or winning7.issubset(player2) or winning8.issubset(player2):
+
+                
+
+            print(f'{player_2} is the winner')
+            break
+            
+
+                
+
         else:
             pass
-    
-        
-        
-        
